@@ -2348,7 +2348,7 @@ classdef Restoration < handle
             % Open file
             dirName = ['.\cases\',resObj.caseName,'\results'];
             resFile = fopen([dirName,'\Result_',resObj.fileName, ...
-                '_', num2str(resObj.f_sec(1)), '-', num2str(resObj.f_sec(2)), '.txt'],...
+                '_', resObj.node_name{resObj.f_sec(1)}, '-', resObj.node_name{resObj.f_sec(2)}, '.txt'],...
                 'w', 'n', 'UTF-8');
             if resFile == -1
                 error('Error: Can not open file !!!');
@@ -2358,6 +2358,9 @@ classdef Restoration < handle
             fprintf(resFile, ['Case name: ', resObj.caseName, '/', resObj.fileName, '.\n']);
             fprintf(resFile, 'Fault section: %d - %d (in original topology), %d - %d (in simplified topology)\n', ...
                 resObj.f_sec(1), resObj.f_sec(2), resObj.f_sec_1(1), resObj.f_sec_1(2));
+            
+            fprintf(resFile, 'Fault section: %s - %s (using node names of .glm file)\n', ...
+                resObj.node_name{resObj.f_sec(1)}, resObj.node_name{resObj.f_sec(2)});
             
             % Restoration results
             if IdxSW ~= 0 % Full restoration is successful
@@ -2382,10 +2385,18 @@ classdef Restoration < handle
             fprintf(resFile, 'Open: %d - %d (in original topology), %d - %d (in simplified topology)\n', ...
                 resObj.candidateSwOpe(IdxSW,1), resObj.candidateSwOpe(IdxSW,2), ...
                 resObj.candidateSwOpe_1(IdxSW,1), resObj.candidateSwOpe_1(IdxSW,2) );
+            
+            fprintf(resFile, 'Open: %s - %s (using node names of .glm file)\n', ...
+                resObj.node_name{resObj.candidateSwOpe(IdxSW,1)}, resObj.node_name{resObj.candidateSwOpe(IdxSW,2)});            
+            
             if resObj.candidateSwOpe(IdxSW,3)~=resObj.s_ver && resObj.candidateSwOpe(IdxSW,4)~=resObj.s_ver
                 fprintf(resFile, 'Close: %d - %d (in original topology), %d - %d (in simplified topology)\n', ...
                     resObj.candidateSwOpe(IdxSW,3), resObj.candidateSwOpe(IdxSW,4), ...
                     resObj.candidateSwOpe_1(IdxSW,3), resObj.candidateSwOpe_1(IdxSW,4) );
+                
+                fprintf(resFile, 'Close: %s - %s (using node names of .glm file)\n', ...
+                    resObj.node_name{resObj.candidateSwOpe(IdxSW,3)}, resObj.node_name{resObj.candidateSwOpe(IdxSW,4)});            
+
             else
                 if resObj.candidateSwOpe(IdxSW,3)==resObj.s_ver
                     idx_microgrid = find(resObj.MGIdx==resObj.candidateSwOpe(IdxSW,4));

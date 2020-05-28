@@ -1,0 +1,9 @@
+Case name: IEEE37/IEEE_37node.
+Fault section: 40 - 4 (in original topology), 3 - 4 (in simplified topology)
+Fault section: node703s - node703 (using node names of .glm file)
+Full restoration is successful.
+The optimal switching sequence is as follows. 
+Open: 40 - 4 (in original topology), 3 - 4 (in simplified topology)
+Open: node703s - node703 (using node names of .glm file)
+Close: 35 - 23 (in original topology), 35 - 23 (in simplified topology)
+Close: node742 - node729 (using node names of .glm file)

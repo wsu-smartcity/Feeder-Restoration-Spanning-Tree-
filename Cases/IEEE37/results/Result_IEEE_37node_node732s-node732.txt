@@ -1,0 +1,4 @@
+Case name: IEEE37/IEEE_37node.
+Fault section: 62 - 26 (in original topology), 9 - 26 (in simplified topology)
+Fault section: node732s - node732 (using node names of .glm file)
+Outage load cannot be restored!!!

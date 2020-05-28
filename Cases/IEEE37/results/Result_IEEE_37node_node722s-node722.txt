@@ -1,0 +1,4 @@
+Case name: IEEE37/IEEE_37node.
+Fault section: 54 - 18 (in original topology), 8 - 18 (in simplified topology)
+Fault section: node722s - node722 (using node names of .glm file)
+Outage load cannot be restored!!!

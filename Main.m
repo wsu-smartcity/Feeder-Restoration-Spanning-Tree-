@@ -13,6 +13,7 @@ close all
 format short g
 
 addpath ('Classes')
+addpath('D:\Duke_UC3_S1_[For UTK]')
 
 %% Cases Information
 

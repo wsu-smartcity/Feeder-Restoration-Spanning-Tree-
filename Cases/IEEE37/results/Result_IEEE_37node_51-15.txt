@@ -1,3 +1,0 @@
-Case name: IEEE37/IEEE_37node.
-Fault section: 51 - 15 (in original topology), 5 - 15 (in simplified topology)
-Outage load cannot be restored!!!

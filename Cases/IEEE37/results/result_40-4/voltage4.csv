@@ -1,9 +1,0 @@
-# file...... voltage4.csv
-# date...... Fri Jul 01 16:21:00 2016
-# user...... xjasu
-# host...... (null)
-# target.... node 24
-# trigger... (none)
-# interval.. 0
-# limit..... 1000
-# timestamp,voltage_AB.real[kV],voltage_AB.imag[kV],voltage_BC.real[kV],voltage_BC.imag[kV],voltage_CA.real[kV],voltage_CA.imag[kV]

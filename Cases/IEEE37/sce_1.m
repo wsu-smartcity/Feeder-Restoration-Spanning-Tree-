@@ -11,7 +11,7 @@ mVer = [];
 % Limits
 voltage_limit = 4.8*[0.95, 1.05]; % lower and upper limits of load voltages
 feeder_power_limit = Inf; % upper limits of feeder powers
-thermal_limit = [ % thermal limits of lines
+thermal_limit = 0*[ % thermal limits of lines
     1856570
     512635
     792506

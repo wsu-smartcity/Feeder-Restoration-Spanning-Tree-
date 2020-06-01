@@ -1,9 +1,22 @@
 Case name: IEEE37/IEEE_37node.
 Fault section: 55 - 19 (in original topology), 8 - 19 (in simplified topology)
 Fault section: node724s - node724 (using node names of .glm file)
-Full restoration is successful.
+Full restoration is failed. Partial restoration is performed.
+2078.768655 kVA load should be shed.
 The optimal switching sequence is as follows. 
 Open: 55 - 19 (in original topology), 8 - 19 (in simplified topology)
 Open: node724s - node724 (using node names of .glm file)
 Close: 14 - 19 (in original topology), 14 - 19 (in simplified topology)
 Close: node713 - node724 (using node names of .glm file)
+Open: 59 - 23 (in original topology), 36 - 23 (in simplified topology)
+Open: node729s - node729 (using node names of .glm file)
+Close: 35 - 23 (in original topology), 35 - 23 (in simplified topology)
+Close: node742 - node729 (using node names of .glm file)
+Open: 68 - 32 (in original topology), 31 - 32 (in simplified topology)
+Open: node738s - node738 (using node names of .glm file)
+Close: 20 - 34 (in original topology), 20 - 34 (in simplified topology)
+Close: node725 - node741 (using node names of .glm file)
+Open: 47 - 11 (in original topology), 28 - 11 (in simplified topology)
+Open: node710s - node710 (using node names of .glm file)
+Close: 22 - 29 (in original topology), 22 - 29 (in simplified topology)
+Close: node728 - node735 (using node names of .glm file)

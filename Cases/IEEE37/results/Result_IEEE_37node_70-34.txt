@@ -1,6 +1,0 @@
-Case name: IEEE37/IEEE_37node.
-Fault section: 70 - 34 (in original topology), 12 - 34 (in simplified topology)
-Full restoration is successful.
-The optimal switching sequence is as follows. 
-Open: 70 - 34 (in original topology), 12 - 34 (in simplified topology)
-Close: 20 - 34 (in original topology), 20 - 34 (in simplified topology)

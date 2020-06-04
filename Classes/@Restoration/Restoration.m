@@ -2362,6 +2362,20 @@ classdef Restoration < handle
             fprintf(resFile, 'Fault section: %s - %s (using node names of .glm file)\n', ...
                 resObj.node_name{resObj.f_sec(1)}, resObj.node_name{resObj.f_sec(2)});
             
+            %==Jing 2020-6
+            sec_swt_nds_mat = resObj.sec_swi;
+            sec_swt_nds_sorted_mat = sort(sec_swt_nds_mat, 2);
+            f_sec_sorted_vec = sort(resObj.f_sec, 2);
+            [~, locb] = ismember(f_sec_sorted_vec, sec_swt_nds_sorted_mat,'row');
+            if numel(locb) ~= 1
+                error('No switch is located with respect to the given fault!')
+            else
+                f_sec_swt_name = resObj.sec_swi_name{locb};
+                fprintf(resFile, '"Fault" switch: %s (using switch name of .glm file)\n', ...
+                    f_sec_swt_name);
+            end
+            
+            
             % Restoration results
             if IdxSW ~= 0 % Full restoration is successful
                 fprintf(resFile, 'Full restoration is successful.\n');
@@ -2389,6 +2403,20 @@ classdef Restoration < handle
             fprintf(resFile, 'Open: %s - %s (using node names of .glm file)\n', ...
                 resObj.node_name{resObj.candidateSwOpe(IdxSW,1)}, resObj.node_name{resObj.candidateSwOpe(IdxSW,2)});            
             
+            %==Jing 2020-6
+            sec_swt_nds_mat = resObj.sec_swi;
+            sec_swt_nds_sorted_mat = sort(sec_swt_nds_mat, 2);
+            open_sec_sorted_vec = sort([resObj.candidateSwOpe(IdxSW,1), resObj.candidateSwOpe(IdxSW,2)], 2);
+            [~, locb] = ismember(open_sec_sorted_vec, sec_swt_nds_sorted_mat,'row');
+            if numel(locb) ~= 1
+                error('No switch is located with respect to the given location!')
+            else
+                open_sec_swt_name = resObj.sec_swi_name{locb};
+                fprintf(resFile, 'Open switch: %s (using switch name of .glm file)\n', ...
+                    open_sec_swt_name);
+            end
+            %==
+            
             if resObj.candidateSwOpe(IdxSW,3)~=resObj.s_ver && resObj.candidateSwOpe(IdxSW,4)~=resObj.s_ver
                 fprintf(resFile, 'Close: %d - %d (in original topology), %d - %d (in simplified topology)\n', ...
                     resObj.candidateSwOpe(IdxSW,3), resObj.candidateSwOpe(IdxSW,4), ...
@@ -2397,6 +2425,20 @@ classdef Restoration < handle
                 fprintf(resFile, 'Close: %s - %s (using node names of .glm file)\n', ...
                     resObj.node_name{resObj.candidateSwOpe(IdxSW,3)}, resObj.node_name{resObj.candidateSwOpe(IdxSW,4)});            
 
+                %==Jing 2020-6
+                tie_swt_nds_mat = resObj.tie_swi;
+                tie_swt_nds_sorted_mat = sort(tie_swt_nds_mat, 2);
+                close_sec_sorted_vec = sort([resObj.candidateSwOpe(IdxSW,3), resObj.candidateSwOpe(IdxSW,4)], 2);
+                [~, locb] = ismember(close_sec_sorted_vec, tie_swt_nds_sorted_mat,'row');
+                if (numel(locb) ~= 1) || (sum(locb)==0)
+                    error('No switch is located with respect to the given location!')
+                else
+                    close_tie_swt_name = resObj.tie_swi_name{locb};
+                    fprintf(resFile, 'Close switch: %s (using switch name of .glm file)\n', ...
+                        close_tie_swt_name);
+                end
+                %==
+                
             else
                 if resObj.candidateSwOpe(IdxSW,3)==resObj.s_ver
                     idx_microgrid = find(resObj.MGIdx==resObj.candidateSwOpe(IdxSW,4));

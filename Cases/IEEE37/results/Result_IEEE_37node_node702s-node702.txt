@@ -1,4 +1,5 @@
 Case name: IEEE37/IEEE_37node.
 Fault section: 39 - 3 (in original topology), 2 - 3 (in simplified topology)
 Fault section: node702s - node702 (using node names of .glm file)
+"Fault" switch: SS_702 (using switch name of .glm file)
 Outage load cannot be restored!!!

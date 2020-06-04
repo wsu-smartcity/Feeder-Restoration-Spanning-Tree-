@@ -1,4 +1,5 @@
 Case name: IEEE37/IEEE_37node.
 Fault section: 69 - 33 (in original topology), 12 - 33 (in simplified topology)
 Fault section: node740s - node740 (using node names of .glm file)
+"Fault" switch: SS_740 (using switch name of .glm file)
 Outage load cannot be restored!!!
